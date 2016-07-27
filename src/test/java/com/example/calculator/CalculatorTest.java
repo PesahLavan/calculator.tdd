@@ -20,7 +20,7 @@ public class CalculatorTest {
 
     @Test
     public void shouldPrintSummary() throws Exception {
-        String path = "Example1.txt";
+        String path = "/test/resources/Example1.txt";
         mCalculator.calculate(path);
         verify(mockReporter).print(42);
 
