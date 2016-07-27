@@ -3,7 +3,18 @@ version '1.0-SNAPSHOT'
 
 apply plugin: 'java'
 
-sourceCompatibility = 1.5
+sourceCompatibility = 1.8
+
+sourceSets {
+    main {
+        java {
+            include 'main/java/'
+        }
+        test{
+            include 'main/test/'
+        }
+    }
+}
 
 repositories {
     mavenCentral()
@@ -11,4 +22,5 @@ repositories {
 
 dependencies {
     testCompile group: 'junit', name: 'junit', version: '4.11'
+    testCompile 'org.mockito:mockito-core:2.0.90-beta'
 }
