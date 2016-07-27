@@ -5,6 +5,19 @@ apply plugin: 'java'
 
 sourceCompatibility = 1.8
 
+sourceSets {
+    main {
+        java {
+            include 'java/'
+        }
+
+    }
+    test{
+        java {
+            include 'java/'
+        }
+    }
+}
 
 repositories {
     mavenCentral()
