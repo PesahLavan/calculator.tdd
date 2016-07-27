@@ -10,9 +10,10 @@ sourceSets {
         java {
             include 'main/java/'
         }
-        test{
-            include 'main/test/'
-        }
+
+    }
+    test{
+        include 'main/test/'
     }
 }
 
