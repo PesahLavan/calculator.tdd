@@ -9,11 +9,13 @@ import static org.mockito.Mockito.verify;
 public class CalculatorTest {
     private final String path = "/test/resources/Example1.txt";
 
+
     private InstructionConnect mockConnector;
     private Calculator mCalculator;
     private CalculatorReporter mockReporter;
     private CalculatorFileReader mockReader;
     private ValidationLine mockValidatorLine;
+    private ArithmeticalOperationFactory mockFactory;
 
     @Before
     public void setUp() throws Exception {
@@ -21,6 +23,7 @@ public class CalculatorTest {
         mockReporter = mock(CalculatorReporter.class);
         mockReader = mock(CalculatorFileReader.class);
         mockValidatorLine = mock(ValidationLine.class);
+        mockFactory = mock(ArithmeticalOperationFactory.class);
         mCalculator = new Calculator(mockReporter, mockReader);
     }
 
@@ -31,6 +34,7 @@ public class CalculatorTest {
         InstructionConnect connect = mockConnector.connect(path);
         String calcReade = mockReader.readeLine(connect);
         String[] res = mockValidatorLine.parse(calcReade);
+        Object operation = mockFactory.constructOperation(res);
 
         mCalculator.calculate(path);
         verify(mockReporter).print(42);
