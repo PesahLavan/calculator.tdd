@@ -1,4 +1,4 @@
-package com.example.calculator;
+package com.example.calculator.util;
 
 public class NoValidLineException extends Exception {
 
