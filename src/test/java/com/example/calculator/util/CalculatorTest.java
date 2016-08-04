@@ -1,9 +1,6 @@
 package com.example.calculator.util;
-import com.example.calculator.operation.BaseOperation;
 import org.junit.Before;
 import org.junit.Test;
-
-import java.util.List;
 
 import static org.mockito.Mockito.mock;
 
@@ -12,15 +9,21 @@ public class CalculatorTest {
 
     private Calculator mCalculator;
     private CalculatorReporter mockReporter;
+    private InstructionConnect mockConnect;
     private CalculatorFileReader mockReader;
-    private List<BaseOperation> operations;
+    private ValidationLine mockValidationLine;
+
+
 
     @Before
     public void setUp() {
         mCalculator = mock(Calculator.class);
         mockReporter = mock(CalculatorReporter.class);
+        mockConnect = mock(InstructionConnect.class);
         mockReader = mock(CalculatorFileReader.class);
+        mockValidationLine = mock(ValidationLine.class);
         mCalculator = new Calculator(mockReporter, mockReader);
+
     }
 
     @Test
