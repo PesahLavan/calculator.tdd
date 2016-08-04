@@ -8,12 +8,13 @@ import static org.mockito.Mockito.verify;
 
 public class CalculatorTest {
     private final String path = "/test/resources/Example1.txt";
-//    Object connect;
-    InstructionConnect mockConnector;
-    Calculator mCalculator;
-    CalculatorReporter mockReporter;
-    CalculatorFileReader mockReader;
-    ValidationLine mockValidatorLine;
+
+    private InstructionConnect mockConnector;
+    private Calculator mCalculator;
+    private CalculatorReporter mockReporter;
+    private CalculatorFileReader mockReader;
+    private ValidationLine mockValidatorLine;
+
     @Before
     public void setUp() throws Exception {
         mockConnector = mock(InstructionConnect.class);
@@ -29,7 +30,8 @@ public class CalculatorTest {
     public void shouldPrintSummary() throws Exception {
         InstructionConnect connect = mockConnector.connect(path);
         String calcReade = mockReader.readeLine(connect);
-        boolean res = mockValidatorLine.valid(calcReade);
+        String[] res = mockValidatorLine.parse(calcReade);
+
         mCalculator.calculate(path);
         verify(mockReporter).print(42);
     }
