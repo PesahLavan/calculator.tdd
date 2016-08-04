@@ -6,9 +6,12 @@ import java.nio.file.Paths;
 import java.util.Scanner;
 
 public class InstructionConnect {
+    private Path path;
+    private Scanner readSca;
+
     public Scanner connect(String name) throws IOException {
-        Path path = Paths.get(name);
-        Scanner readSca = new Scanner(path);
+        path = Paths.get(name);
+        readSca = new Scanner(path);
         return readSca;
     }
 }

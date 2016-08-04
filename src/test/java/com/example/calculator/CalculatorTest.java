@@ -3,6 +3,9 @@ package com.example.calculator;
 import org.junit.Before;
 import org.junit.Test;
 
+import java.util.List;
+import java.util.Scanner;
+
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
@@ -31,9 +34,9 @@ public class CalculatorTest {
 
     @Test
     public void shouldPrintSummary() throws Exception {
-        InstructionConnect connect = mockConnector.connect(path);
-        String calcReade = mockReader.readeLine(connect);
-        String[] res = mockValidatorLine.parse(calcReade);
+        Scanner connect = mockConnector.connect(path);
+        List<Object> calcReade = mockReader.readeLine(connect);
+        String[] res = mockValidatorLine.parse(connect.nextLine());
         Object operation = mockFactory.constructOperation(res);
 
         mCalculator.calculate(path);

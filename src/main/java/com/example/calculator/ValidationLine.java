@@ -4,12 +4,14 @@ import java.util.IllegalFormatException;
 
 public class ValidationLine {
 
-    public String[] parse(String calcReade) throws Exception {
+    public ValidationLine() {
+    }
+
+    public String[] parse(String calcReade) throws NoValidLineException {
         String[] lineElement = calcReade.split(" ");
         if (isCount(lineElement) & isOperation(lineElement) & isNumber(lineElement))
             return lineElement;
-        else  throw new Exception();
-//        TODO: "add exception for bad format line"
+        else  throw new NoValidLineException();
     }
     private boolean isCount(String[] line){
         if (line.length == 2) return true;
