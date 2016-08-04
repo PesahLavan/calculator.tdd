@@ -1,9 +1,6 @@
 package com.example.calculator.util;
 
-import com.example.calculator.operation.AddOperation;
-import com.example.calculator.operation.BaseOperation;
-import com.example.calculator.operation.InitialOperation;
-import com.example.calculator.operation.MultiplyOperation;
+import com.example.calculator.operation.*;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -14,11 +11,13 @@ import java.util.List;
 
 
 public class CalculatorFileReaderTest {
+
+
     private CalculatorFileReader fileReader;
     private InstructionConnect connect;
     private List<BaseOperation> list = new ArrayList<>();
     private String name = "src/test/resources/Example1.txt";
-    private  List<BaseOperation> testList = new ArrayList<>();
+    private List<BaseOperation> testList = new ArrayList<>();
     @Before
     public void setUp() {
 
