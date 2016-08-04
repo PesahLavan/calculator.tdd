@@ -3,8 +3,9 @@ package com.example.calculator.util;
 import com.example.calculator.operation.*;
 
 public class ArithmeticalOperationFactory {
-    public BaseOperation constructOperation(String operationName, int value) {
-
+    public BaseOperation constructOperation(String[] operation) {
+        String operationName = operation[0];
+        int value = Integer.valueOf(operation[1]);
         if ("apply".equals(operationName)) {
             return new InitialOperation(value);
         }

@@ -1,16 +1,18 @@
 package com.example.calculator.util;
 
+import com.example.calculator.operation.BaseOperation;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
 public class CalculatorFileReader {
 
-    private List<Object> listInstruction = new ArrayList<>();
+    private List<BaseOperation> listInstruction = new ArrayList<>();
     private ValidationLine validationLine = new ValidationLine();
     private ArithmeticalOperationFactory factory = new ArithmeticalOperationFactory();
 
-    public List<Object> readeLine(Scanner connect) {
+    public List<BaseOperation> readeLine(Scanner connect) {
         while (connect.hasNext()){
             String line = connect.nextLine();
             try {
@@ -20,6 +22,7 @@ public class CalculatorFileReader {
                 System.out.println("Bad format line");
             }
         }
+        connect.close();
         return  listInstruction;
     }
 }
